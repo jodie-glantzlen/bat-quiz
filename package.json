@@ -1,0 +1,27 @@
+{
+  "name": "bat-quiz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm run dev --prefix frontend\" \"npm run dev --prefix backend\"",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:backend": "npm run dev --prefix backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jodie-glantzlen/bat-quiz.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jodie-glantzlen/bat-quiz/issues"
+  },
+  "homepage": "https://github.com/jodie-glantzlen/bat-quiz#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
