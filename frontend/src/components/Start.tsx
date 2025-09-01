@@ -1,15 +1,13 @@
 import { Button, TextField } from "@mui/material";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import type { InputEvent } from "../../types";
+import type { InputEvent, PlayerProps } from "../../types";
 
-function Start() {
-  const [name, setName] = useState<string>("")
+function Start({ player, setPlayer }: PlayerProps) {
 
   const navigate = useNavigate();
 
   const handleInputChange = (e: InputEvent) : void => {
-    setName(e.target.value)
+    setPlayer({...player, name: e.target.value})
   }
 
   const handleClick = () : void => {
@@ -21,13 +19,13 @@ function Start() {
       <h1>🦇 Guess the Bat Species 🦇</h1>
       <div>Enter your name:</div>
       <TextField
-        value={name}
+        value={player.name}
         onChange={handleInputChange}
       />
       <div className="buttonWrapper">
         <Button
         variant="contained"
-        disabled={!name}
+        disabled={!player.name}
         onClick={handleClick}
       >
         Start
