@@ -7,34 +7,27 @@ function QuestionCard({ question, selectedOption, onSelect }: QuestionCardProps)
     onSelect(e.target.value)
   }
 
+  const getOptionClass = (option: string): string => {
+    if (!selectedOption) return "option"
+    if (option === question.answer) return "option correct"
+    if (option === selectedOption && option !== question.answer) return "option wrong"
+    return "option"
+  }
+
   return (
     <div>
       <img src={question.image} alt={`very cute ${question.answer} bat`} />
       <FormControl>
         <RadioGroup name="options-group" value={selectedOption ?? null} onChange={handleChange}>
-          {
-            question.options.map((o) => {
-              const isCorrect = o === question.answer
-              const isSelected = o === selectedOption
-              let style = {};
-              if (selectedOption) {
-                if (isCorrect) {
-                  style = { color: "green", fontWeight: "bold" };
-                } else if (isSelected && !isCorrect) {
-                  style = { color: "red", fontWeight: "bold" }
-                }
-              }
-              return (
-                <FormControlLabel
-                  key={o}
-                  value={o}
-                  control={<Radio />}
-                  label={o}
-                  style={style}
-                />
-              );
-            })
-          }
+          {question.options.map((o) => (
+            <FormControlLabel
+              key={o}
+              value={o}
+              control={<Radio/>}
+              label={o}
+              className={getOptionClass(o)}
+            />
+          ))}
         </RadioGroup>
       </FormControl>
     </div>

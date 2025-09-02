@@ -21,3 +21,18 @@ body {
   display: flex;
   justify-content: center;
 }
+
+.option {
+  font-weight: normal;
+  color: inherit;
+}
+
+.option.correct {
+  color: green;
+  font-weight: bold;
+}
+
+.option.wrong {
+  color: red;
+  font-weight: bold;
+}
