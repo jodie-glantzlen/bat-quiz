@@ -12,6 +12,11 @@ body {
   margin: 2rem auto;
 }
 
+.game-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .buttonWrapper {
   display: flex;
   justify-content: center;

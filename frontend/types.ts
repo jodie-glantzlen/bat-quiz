@@ -5,9 +5,21 @@ type Player = {
   score: number;
 }
 
+type Question = {
+  image: string;
+  options: string[];
+  answer: string;
+}
+
+// Props
 type PlayerProps = {
   player: Player;
   setPlayer: Function
 }
 
-export type {InputEvent, Player, PlayerProps}
+type QuestionCardProps = {
+  question: Question
+}
+
+
+export type {InputEvent, Player, PlayerProps, Question, QuestionCardProps}

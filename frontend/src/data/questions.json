@@ -1,0 +1,52 @@
+[
+  {
+    "image": "/images/gewone-dwerg.jpg",
+    "options": [
+      "Gewone dwergvleermuis",
+      "Rosse vleermuis",
+      "Ingekorven vleermuis",
+      "Laatvlieger"
+    ],
+    "answer": "Gewone dwergvleermuis"
+  },
+  {
+    "image": "/images/grootoor.jpg",
+    "options": [
+      "Grootoorvleermuis",
+      "Watervleermuis",
+      "Ruige dwergvleermuis",
+      "Rosse vleermuis"
+    ],
+    "answer": "Grootoorvleermuis"
+  },
+  {
+    "image": "/images/rosse-vleermuis.jpg",
+    "options": [
+      "Rosse vleermuis",
+      "Franjestaart",
+      "Laatvlieger",
+      "Gewone dwergvleermuis"
+    ],
+    "answer": "Rosse vleermuis"
+  },
+  {
+    "image": "/images/watervleermuis.jpg",
+    "options": [
+      "Watervleermuis",
+      "Grootoorvleermuis",
+      "Meervleermuis",
+      "Kleine dwergvleermuis"
+    ],
+    "answer": "Watervleermuis"
+  },
+  {
+    "image": "/images/laatvlieger.jpg",
+    "options": [
+      "Laatvlieger",
+      "Rosse vleermuis",
+      "Gewone grootoor",
+      "Ingekorven vleermuis"
+    ],
+    "answer": "Laatvlieger"
+  }
+]
