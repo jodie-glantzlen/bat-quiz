@@ -1,12 +1,17 @@
 import { FormControl, FormControlLabel, Radio, RadioGroup } from "@mui/material";
-import type { QuestionCardProps } from "../../types";
+import type { InputChangeEvent, QuestionCardProps } from "../../types";
 
-function QuestionCard({ question }: QuestionCardProps) {
+function QuestionCard({ question, selectedOption, onSelect }: QuestionCardProps) {
+
+  const handleChange = (e: InputChangeEvent) => {
+    onSelect(e.target.value)
+  }
+
   return (
     <div>
       <img src={question.image} alt={`very cute ${question.answer} bat`} />
       <FormControl>
-        <RadioGroup name="options-group">
+        <RadioGroup name="options-group" value={selectedOption ?? null} onChange={handleChange}>
           {question.options.map((o) => (
             <FormControlLabel key={o} value={o} control={<Radio />} label={o} />
           ))}

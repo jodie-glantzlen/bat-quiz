@@ -1,4 +1,4 @@
-type InputEvent = React.ChangeEvent<HTMLInputElement>;
+type InputChangeEvent = React.ChangeEvent<HTMLInputElement>;
 
 type Player = {
   name: string;
@@ -18,8 +18,10 @@ type PlayerProps = {
 }
 
 type QuestionCardProps = {
-  question: Question
+  question: Question;
+  selectedOption: string | null;
+  onSelect: Function
 }
 
 
-export type {InputEvent, Player, PlayerProps, Question, QuestionCardProps}
+export type {InputChangeEvent, Player, PlayerProps, Question, QuestionCardProps}
