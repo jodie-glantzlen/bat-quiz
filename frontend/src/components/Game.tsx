@@ -13,7 +13,7 @@ function Game() {
 
   const navigate = useNavigate()
 
-  const handleContinue = () => {
+  const handleContinue = (): void => {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex((prev) => prev + 1)
       setSelectedOption(null)
@@ -26,7 +26,6 @@ function Game() {
     <div className='game-container'>
       <h1>Question {currentQuestionIndex + 1}/{questions.length}</h1>
       <QuestionCard question={currentQuestion} selectedOption={selectedOption} onSelect={setSelectedOption}/>
-      <p>Selected answer: {selectedOption}</p>
       <Button onClick={handleContinue} disabled={!selectedOption}>Continue</Button>
     </div>
   )
