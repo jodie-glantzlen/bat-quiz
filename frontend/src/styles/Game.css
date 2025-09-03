@@ -1,0 +1,131 @@
+/* Root container: full height, flex column, vertical centering */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 16px;
+  box-sizing: border-box;
+
+  background-color: var(--background);
+  color: var(--text);
+}
+
+/* Header row: question left, score right */
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.progress-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+/* Container for QuestionCard (image + options) */
+.question-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;       /* push continue button down */
+  justify-content: center;
+  text-align: center;
+}
+
+/* Wrapper for image + options stacked vertically */
+.question-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;   /* keeps layout from stretching too wide */
+}
+
+.question-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+/* Options container */
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+/* Make the entire option row clickable and hide radio circle (looks more gamey) */
+.MuiFormControlLabel-root {
+  display: flex !important;       
+  align-items: center !important; 
+  justify-content: center;        
+  gap: 8px;
+  width: 100%; 
+}
+
+.MuiRadio-root {
+  display: none;
+}
+
+/* Options + colour feedback */
+.option {
+  display: block;
+  margin: 8px 0;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background-color: #f5f5dc;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.option.correct {
+  background-color: #6b8e23;
+  color: white;
+}
+
+.option.wrong {
+  background-color: #b22222;
+  color: white;
+}
+
+/* Correct/Wrong feedback */
+.feedback {
+  margin-top: 16px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Continue button */
+.game-container .MuiButton-root {
+  background-color: #8b4513;
+  color: white;
+  font-weight: bold;
+  margin-top: 24px;
+}
+
+.game-container .MuiButton-root:hover {
+  background-color: #5a2e0d;
+}
+
+/* Dark/light mode variables */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1e1e1e;
+    --text: #f0f0f0;
+  }
+
+  .option {
+    background-color: #444233;
+    color: #f0f0f0;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #fefefe;
+    --text: #333333;
+  }
+}

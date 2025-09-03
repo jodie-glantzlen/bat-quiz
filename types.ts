@@ -27,5 +27,10 @@ type FinishProps = {
   player: Player;
 }
 
+type ProgressHeaderProps = {
+  currentQuestion: number;
+  totalQuestions: number;
+  score: number;
+}
 
-export type {InputChangeEvent, Player, PlayerProps, Question, QuestionCardProps, FinishProps}
+export type {InputChangeEvent, Player, PlayerProps, Question, QuestionCardProps, FinishProps, ProgressHeaderProps}
