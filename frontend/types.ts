@@ -14,13 +14,13 @@ type Question = {
 // Props
 type PlayerProps = {
   player: Player;
-  setPlayer: Function
+  setPlayer: React.Dispatch<React.SetStateAction<Player>>;
 }
 
 type QuestionCardProps = {
   question: Question;
   selectedOption: string | null;
-  onSelect: Function
+  onSelect: (value: string) => void;
 }
 
 

@@ -3,7 +3,7 @@ import questions from '../data/questions.json'
 import QuestionCard from './QuestionCard'
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import type { PlayerProps, Player } from '../../types';
+import type { PlayerProps } from '../../types';
 
 function Game({ player, setPlayer }: PlayerProps) {
 
@@ -17,7 +17,7 @@ function Game({ player, setPlayer }: PlayerProps) {
   const handleAnswerSelection = (answer: string): void => {
     setSelectedOption(answer)
     if (answer === currentQuestion.answer) {
-      setPlayer((prev: Player) => ({
+      setPlayer((prev) => ({
         ...prev,
         score: prev.score + 1
       }))
