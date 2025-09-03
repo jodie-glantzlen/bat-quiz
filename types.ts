@@ -23,5 +23,9 @@ type QuestionCardProps = {
   onSelect: (value: string) => void;
 }
 
+type FinishProps = {
+  player: Player;
+}
 
-export type {InputChangeEvent, Player, PlayerProps, Question, QuestionCardProps}
+
+export type {InputChangeEvent, Player, PlayerProps, Question, QuestionCardProps, FinishProps}

@@ -4,7 +4,7 @@ import Start from './components/Start';
 import Game from './components/Game';
 import Finish from './components/Finish';
 import './styles/global.css';
-import type { Player } from '../types';
+import type { Player } from '../../types';
 import { useState } from 'react';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
     <Routes>
       <Route path='/' element={<Start player={player} setPlayer={setPlayer} />}/>
       <Route path='/game' element={<Game player={player} setPlayer={setPlayer} />}/>
-      <Route path='/finish' element={<Finish />}/>
+      <Route path='/finish' element={<Finish player={player} />}/>
     </Routes>
   )
 }

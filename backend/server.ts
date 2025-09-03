@@ -8,9 +8,9 @@ app.use(express.json());
 
 let scores: Player[] = []
 
-app.get("/hello", (req, res) => {
-  res.send({ message: "Hallo from the backend!" });
-});
+function sortScores(scores: Player[]): Player[] {
+  return [...scores].sort((a, b) => b.score - a.score);
+}
 
 app.post("/scores", (req, res) => {
   const player: Player = req.body
@@ -19,7 +19,7 @@ app.post("/scores", (req, res) => {
 })
 
 app.get("/scores", (_req, res) => {
-  res.json(scores)
+  res.json(sortScores(scores))
 })
 
 app.listen(4000, () => console.log("Server running on http://localhost:4000"));
