@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import type {FinishProps, Player} from "../../../types"
+import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 function Finish({player}: FinishProps) {
 
@@ -15,9 +17,15 @@ function Finish({player}: FinishProps) {
     }
   }
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     getScores()
   }, [])
+
+  const handleClick = () => {
+    navigate("/")
+  }
 
   return (
     <>
@@ -28,6 +36,7 @@ function Finish({player}: FinishProps) {
           <p>{player.name}: {player.score}</p>
         ))
       }
+      <Button onClick={handleClick}>New Game</Button>
     </>
   )
 }
