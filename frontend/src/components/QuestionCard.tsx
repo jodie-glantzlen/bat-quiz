@@ -4,7 +4,9 @@ import type { InputChangeEvent, QuestionCardProps } from "../../types";
 function QuestionCard({ question, selectedOption, onSelect }: QuestionCardProps) {
 
   const handleChange = (e: InputChangeEvent): void => {
-    onSelect(e.target.value)
+    if (!selectedOption) {
+      onSelect(e.target.value)
+    }
   }
 
   const getOptionClass = (option: string): string => {
@@ -18,7 +20,7 @@ function QuestionCard({ question, selectedOption, onSelect }: QuestionCardProps)
     <div>
       <img src={question.image} alt={`very cute ${question.answer} bat`} />
       <FormControl>
-        <RadioGroup name="options-group" value={selectedOption ?? null} onChange={handleChange}>
+        <RadioGroup name="options-group" value={selectedOption ?? null} onChange={handleChange} >
           {question.options.map((o) => (
             <FormControlLabel
               key={o}
