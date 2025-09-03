@@ -1,6 +1,7 @@
 import express = require("express");
 import cors = require("cors");
 import type {Player} from "../types"
+const { sortScores } = require("./utils/sortScores");
 
 const app = express();
 app.use(cors());
@@ -8,11 +9,7 @@ app.use(express.json());
 
 let scores: Player[] = []
 
-function sortScores(scores: Player[]): Player[] {
-  return [...scores].sort((a, b) => b.score - a.score);
-}
-
-app.post("/scores", (req, res) => {
+app.post("/player", (req, res) => {
   const player: Player = req.body
   scores.push(player)
   res.status(201).json(player)

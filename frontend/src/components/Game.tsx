@@ -4,6 +4,7 @@ import QuestionCard from './QuestionCard'
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import type { PlayerProps } from '../../../types';
+import { postPlayer } from '../api/api';
 
 function Game({ player, setPlayer }: PlayerProps) {
 
@@ -29,12 +30,7 @@ function Game({ player, setPlayer }: PlayerProps) {
       setCurrentQuestionIndex((prev) => prev + 1)
       setSelectedOption(null)
     } else {
-      //TODO: separate function
-      await fetch("http://localhost:4000/scores", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(player),
-      })
+      await postPlayer(player)
       navigate("/finish")
     }
   }

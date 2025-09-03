@@ -1,29 +1,21 @@
 import { useEffect, useState } from "react";
-import type {FinishProps, Player} from "../../../types"
+import type {Player, PlayerProps} from "../../../types"
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { getScores } from "../api/api";
 
-function Finish({player}: FinishProps) {
+function Finish({ player, setPlayer }: PlayerProps) {
 
   const [leaderboard, setLeaderboard] = useState<Player[]>([])
-
-  const getScores = async (): Promise<void> => {
-    try {
-      const res = await fetch("http://localhost:4000/scores")
-      const data = await res.json()
-      setLeaderboard(data)
-    } catch (e) {
-      console.error("Error fetching scores: ", e)
-    }
-  }
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    getScores()
+    getScores().then(setLeaderboard)
   }, [])
 
   const handleClick = () => {
+    setPlayer({ name: "", score: 0 })
     navigate("/")
   }
 
