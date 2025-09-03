@@ -1,0 +1,65 @@
+.start-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 16px;
+  box-sizing: border-box;
+
+  /* Neutral background that works in dark/light mode */
+  background-color: var(--background);
+  color: var(--text);
+  text-align: center;
+}
+
+/* Title */
+.start-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 24px;
+}
+
+/* Input field */
+.start-container .MuiTextField-root {
+  margin-bottom: 24px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.start-container .MuiInputBase-input {
+  color: var(--text);
+}
+
+.start-container .MuiInputLabel-root {
+  color: var(--text);
+}
+
+.start-container .MuiOutlinedInput-notchedOutline {
+  border-color: var(--text);
+}
+
+/* Button */
+.start-container .start-button {
+  background-color: #6b8e23;
+  color: white;
+  font-weight: bold;
+}
+
+.start-container .start-button:hover {
+  background-color: #556b2f;
+}
+
+/* Optional: adjust colors for dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1e1e1e;
+    --text: #f0f0f0;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #fefefe;
+    --text: #333333;
+  }
+}

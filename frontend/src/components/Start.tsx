@@ -1,6 +1,7 @@
 import { Button, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import type { InputChangeEvent, PlayerProps } from "../../../types";
+import "../styles/Start.css"
 
 function Start({ player, setPlayer }: PlayerProps) {
 
@@ -16,22 +17,21 @@ function Start({ player, setPlayer }: PlayerProps) {
   }
 
   return (
-    <div className="container">
+    <div className="start-container">
       <h1>🦇 Guess the Bat Species 🦇</h1>
-      <div>Enter your name:</div>
+      <h3>Enter your name:</h3>
       <TextField
         value={player.name}
         onChange={handleInputChange}
       />
-      <div className="buttonWrapper">
         <Button
         variant="contained"
         disabled={!player.name}
         onClick={handleClick}
+        className="start-button"
       >
         Start
       </Button>
-      </div>
     </div>
   )
 }
