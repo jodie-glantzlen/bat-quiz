@@ -5,16 +5,16 @@ function QuestionCard({ question, selectedOption, onSelect }: QuestionCardProps)
 
   const handleChange = (e: InputChangeEvent): void => {
     if (!selectedOption) {
-      onSelect(e.target.value)
+      onSelect(e.target.value);
     }
-  }
+  };
 
   const getOptionClass = (option: string): string => {
-    if (!selectedOption) return "option"
-    if (option === question.answer) return "option correct"
-    if (option === selectedOption && option !== question.answer) return "option wrong"
-    return "option"
-  }
+    if (!selectedOption) return "option";
+    if (option === question.answer) return "option correct";
+    if (option === selectedOption && option !== question.answer) return "option wrong";
+    return "option";
+  };
 
   return (
     <div>
@@ -25,13 +25,22 @@ function QuestionCard({ question, selectedOption, onSelect }: QuestionCardProps)
             <FormControlLabel
               key={o}
               value={o}
-              control={<Radio/>}
+              control={<Radio />}
               label={o}
               className={getOptionClass(o)}
             />
           ))}
         </RadioGroup>
       </FormControl>
+      {
+        selectedOption && (
+          <div>
+            {
+              selectedOption === question.answer ? "Correct" : "Wrong"
+            }
+          </div>
+        )
+      }
     </div>
   );
 }
