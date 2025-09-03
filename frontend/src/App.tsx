@@ -14,7 +14,7 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={<Start player={player} setPlayer={setPlayer} />}/>
-      <Route path='/game' element={<Game />}/>
+      <Route path='/game' element={<Game player={player} setPlayer={setPlayer} />}/>
       <Route path='/finish' element={<Finish />}/>
     </Routes>
   )
