@@ -3,7 +3,7 @@ import questions from '../data/questions.json'
 import QuestionCard from './QuestionCard'
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import type { PlayerProps } from '../../types';
+import type { PlayerProps } from '../../../types';
 
 function Game({ player, setPlayer }: PlayerProps) {
 
@@ -24,11 +24,17 @@ function Game({ player, setPlayer }: PlayerProps) {
     }
   }
 
-  const handleContinue = (): void => {
+  const handleContinue = async (): Promise<void> => {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex((prev) => prev + 1)
       setSelectedOption(null)
     } else {
+      //TODO: separate function
+      await fetch("http://localhost:4000/scores", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(player),
+      })
       navigate("/finish")
     }
   }

@@ -1,5 +1,5 @@
 import { FormControl, FormControlLabel, Radio, RadioGroup } from "@mui/material";
-import type { InputChangeEvent, QuestionCardProps } from "../../types";
+import type { InputChangeEvent, QuestionCardProps } from "../../../types";
 
 function QuestionCard({ question, selectedOption, onSelect }: QuestionCardProps) {
 

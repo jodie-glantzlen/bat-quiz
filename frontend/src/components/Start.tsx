@@ -1,6 +1,6 @@
 import { Button, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import type { InputChangeEvent, PlayerProps } from "../../types";
+import type { InputChangeEvent, PlayerProps } from "../../../types";
 
 function Start({ player, setPlayer }: PlayerProps) {
 
@@ -11,6 +11,7 @@ function Start({ player, setPlayer }: PlayerProps) {
   }
 
   const handleClick = () : void => {
+    console.log("player before navigate: ", player)
     navigate("/game")
   }
 
