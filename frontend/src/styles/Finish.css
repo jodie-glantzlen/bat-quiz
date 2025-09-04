@@ -24,16 +24,16 @@
   padding: 0;
   margin: 0;
   counter-reset: rank;
+  width: 100%;
 }
 
 .leaderboard li {
   counter-increment: rank;
-  display: grid;
-  grid-template-columns: 30px 1fr auto;
-  align-items: center;
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-  font-size: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+  margin: 4px 0;
+  border-radius: 6px;
 }
 
 .leaderboard li:last-child {
@@ -54,6 +54,17 @@
 .leaderboard .score {
   font-weight: bold;
   text-align: right;
+}
+
+.current-player {
+  background-color: #d2b48c;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.current-player .name,
+.current-player .score {
+  color: #8b4513;
 }
 
 /* New Game button */

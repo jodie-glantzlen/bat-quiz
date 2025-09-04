@@ -11,6 +11,10 @@ function Finish({ player, setPlayer }: PlayerProps) {
 
   const navigate = useNavigate();
 
+  const isCurrentPlayer = (playerItem: Player): boolean => {
+    return playerItem.name === player.name && playerItem.score === player.score;
+  }
+
   useEffect(() => {
     getScores().then(setLeaderboard);
   }, []);
@@ -27,10 +31,10 @@ function Finish({ player, setPlayer }: PlayerProps) {
       <div className="leaderboard">
         <ol>
           {
-            leaderboard.map(player => (
-              <li key={player.name}>
-                <span className="name">{player.name}</span>
-                <span className="score">{player.score}</span>
+            leaderboard.map(pItem => (
+              <li key={pItem.name} className={isCurrentPlayer(pItem) ? "current-player" : ""}>
+                <span className="name">{pItem.name}</span>
+                <span className="score">{pItem.score}</span>
               </li>
             ))
           }
