@@ -10,7 +10,8 @@
     "dev:backend": "npm run dev --prefix backend",
     "start": "concurrently \"npm run dev:frontend\" \"npm run start:backend\"",
     "start:frontend": "npm run dev --prefix frontend",
-    "start:backend": "npm run start --prefix backend"
+    "start:backend": "npm run start --prefix backend",
+    "postinstall": "npm install --prefix frontend && npm install --prefix backend"
   },
   "repository": {
     "type": "git",
