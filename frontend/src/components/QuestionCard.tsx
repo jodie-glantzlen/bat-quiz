@@ -1,12 +1,11 @@
-import { FormControl, FormControlLabel, Radio, RadioGroup } from "@mui/material";
-import type { InputChangeEvent, QuestionCardProps } from "../../../types";
+import type { QuestionCardProps } from "../../../types";
 import "../styles/Game.css"
 
 function QuestionCard({ question, selectedOption, onSelect }: QuestionCardProps) {
 
-  const handleChange = (e: InputChangeEvent): void => {
+  const handleClick = (option: string): void => {
     if (!selectedOption) {
-      onSelect(e.target.value);
+      onSelect(option);
     }
   };
 
@@ -20,21 +19,17 @@ function QuestionCard({ question, selectedOption, onSelect }: QuestionCardProps)
   return (
     <div className="question-card">
       <img src={question.image} alt={`very cute ${question.answer} bat`} />
-      <FormControl>
-        <div className="options-container">
-          <RadioGroup name="options-group" value={selectedOption ?? null} onChange={handleChange} >
-            {question.options.map((o) => (
-              <FormControlLabel
-                key={o}
-                value={o}
-                control={<Radio />}
-                label={o}
-                className={getOptionClass(o)}
-              />
-            ))}
-          </RadioGroup>
-        </div>
-      </FormControl>
+      <div className="options-container">
+        {question.options.map((o) => (
+          <div
+            key={o}
+            className={getOptionClass(o)}
+            onClick={() => handleClick(o)}
+          >
+            {o}
+          </div>
+        ))}
+      </div>
       {
         selectedOption && (
           <div className="feedback">

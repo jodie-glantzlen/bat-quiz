@@ -25,7 +25,9 @@ function Finish({ player, setPlayer }: PlayerProps) {
       <h1>Your score: {player.score}</h1>
       {
         leaderboard.map(player => (
-          <p>{player.name}: {player.score}</p>
+          <ol>
+            <li key={player.name}>{player.name}: {player.score}</li>
+          </ol>
         ))
       }
       <Button onClick={handleClick}>New Game</Button>

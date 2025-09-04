@@ -44,7 +44,11 @@ function Game({ player, setPlayer }: PlayerProps) {
         score={player.score} />
         <div className="question-card-container">
           <QuestionCard question={currentQuestion} selectedOption={selectedOption} onSelect={handleAnswerSelection} />
-          <Button onClick={handleContinue} disabled={!selectedOption}>Continue</Button>
+          {
+            selectedOption && (
+              <Button onClick={handleContinue}>Continue</Button>
+            )
+          }
         </div>
     </div>
   );
