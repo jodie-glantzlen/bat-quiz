@@ -1,5 +1,5 @@
-import type { ProgressHeaderProps } from "../../../types";
-import "../styles/Game.css";
+import type { ProgressHeaderProps } from '../../../types'
+import '../styles/Game.css'
 
 function ProgressHeader({
   currentQuestion,
@@ -15,7 +15,7 @@ function ProgressHeader({
         Score: {score}/{totalQuestions}
       </h3>
     </div>
-  );
+  )
 }
 
-export default ProgressHeader;
+export default ProgressHeader
