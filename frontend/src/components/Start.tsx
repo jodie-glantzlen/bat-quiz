@@ -13,7 +13,6 @@ function Start() {
   }
 
   const handleClick = (): void => {
-    console.log('player before navigate: ', player)
     navigate('/game')
   }
 
