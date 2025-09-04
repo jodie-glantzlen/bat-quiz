@@ -1,10 +1,12 @@
 import { Button, TextField } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
-import type { InputChangeEvent, PlayerProps } from '../../../types'
+import type { InputChangeEvent } from '../../../types'
 import '../styles/Start.css'
+import { usePlayer } from '../context/PlayerContext'
 
-function Start({ player, setPlayer }: PlayerProps) {
+function Start() {
   const navigate = useNavigate()
+  const { player, setPlayer } = usePlayer()
 
   const handleInputChange = (e: InputChangeEvent): void => {
     setPlayer({ ...player, name: e.target.value })

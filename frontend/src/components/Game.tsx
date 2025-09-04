@@ -1,40 +1,42 @@
-import { useState } from "react";
-import questions from "../data/questions.json";
-import QuestionCard from "./QuestionCard";
-import { Button } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import type { PlayerProps } from "../../../types";
-import { postPlayer } from "../api/api";
-import ProgressHeader from "./ProgressHeader";
-import "../styles/Game.css";
+import { useState } from 'react'
+import questions from '../data/questions.json'
+import QuestionCard from './QuestionCard'
+import { Button } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
+import { postPlayer } from '../api/api'
+import ProgressHeader from './ProgressHeader'
+import '../styles/Game.css'
+import { usePlayer } from '../context/PlayerContext'
 
-function Game({ player, setPlayer }: PlayerProps) {
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+function Game() {
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0)
+  const [selectedOption, setSelectedOption] = useState<string | null>(null)
 
-  const currentQuestion = questions[currentQuestionIndex];
+  const currentQuestion = questions[currentQuestionIndex]
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
+
+  const { player, setPlayer } = usePlayer()
 
   const handleAnswerSelection = (answer: string): void => {
-    setSelectedOption(answer);
+    setSelectedOption(answer)
     if (answer === currentQuestion.answer) {
-      setPlayer((prev) => ({
-        ...prev,
-        score: prev.score + 1,
-      }));
+      setPlayer({
+        ...player,
+        score: player.score + 1,
+      })
     }
-  };
+  }
 
   const handleContinue = async (): Promise<void> => {
     if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex((prev) => prev + 1);
-      setSelectedOption(null);
+      setCurrentQuestionIndex((prev) => prev + 1)
+      setSelectedOption(null)
     } else {
-      await postPlayer(player);
-      navigate("/finish");
+      await postPlayer(player)
+      navigate('/finish')
     }
-  };
+  }
 
   return (
     <div className="game-container">
@@ -52,7 +54,7 @@ function Game({ player, setPlayer }: PlayerProps) {
         {selectedOption && <Button onClick={handleContinue}>Continue</Button>}
       </div>
     </div>
-  );
+  )
 }
 
-export default Game;
+export default Game

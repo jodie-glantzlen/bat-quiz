@@ -1,27 +1,30 @@
-import { useEffect, useState } from "react";
-import type { Player, PlayerProps } from "../../../types";
-import { Button } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import { getScores } from "../api/api";
-import "../styles/Finish.css";
+import { useEffect, useState } from 'react'
+import type { Player } from '../../../types'
+import { Button } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
+import { getScores } from '../api/api'
+import '../styles/Finish.css'
+import { usePlayer } from '../context/PlayerContext'
 
-function Finish({ player, setPlayer }: PlayerProps) {
-  const [leaderboard, setLeaderboard] = useState<Player[]>([]);
+function Finish() {
+  const [leaderboard, setLeaderboard] = useState<Player[]>([])
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
+
+  const { player, setPlayer } = usePlayer()
 
   const isCurrentPlayer = (playerItem: Player): boolean => {
-    return playerItem.name === player.name && playerItem.score === player.score;
-  };
+    return playerItem.name === player.name && playerItem.score === player.score
+  }
 
   useEffect(() => {
-    getScores().then(setLeaderboard);
-  }, []);
+    getScores().then(setLeaderboard)
+  }, [])
 
   const handleClick = (): void => {
-    setPlayer({ name: "", score: 0 });
-    navigate("/");
-  };
+    setPlayer({ name: '', score: 0 })
+    navigate('/')
+  }
 
   return (
     <div className="finish-container">
@@ -32,7 +35,7 @@ function Finish({ player, setPlayer }: PlayerProps) {
           {leaderboard.map((pItem) => (
             <li
               key={pItem.name}
-              className={isCurrentPlayer(pItem) ? "current-player" : ""}
+              className={isCurrentPlayer(pItem) ? 'current-player' : ''}
             >
               <span className="name">{pItem.name}</span>
               <span className="score">{pItem.score}</span>
@@ -42,7 +45,7 @@ function Finish({ player, setPlayer }: PlayerProps) {
       </div>
       <Button onClick={handleClick}>New Game</Button>
     </div>
-  );
+  )
 }
 
-export default Finish;
+export default Finish
