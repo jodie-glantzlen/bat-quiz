@@ -21,10 +21,7 @@ function Game() {
   const handleAnswerSelection = (answer: string): void => {
     setSelectedOption(answer)
     if (answer === currentQuestion.answer) {
-      setPlayer({
-        ...player,
-        score: player.score + 1,
-      })
+      setPlayer(prev => ({ ...prev, score: prev.score + 1 }))
     }
   }
 

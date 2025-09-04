@@ -27,7 +27,7 @@ type ProgressHeaderProps = {
 // React Context
 type PlayerContextType = {
   player: Player
-  setPlayer: (player: Player) => void
+  setPlayer: React.Dispatch<React.SetStateAction<Player>>
 }
 
 export type {
