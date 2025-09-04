@@ -1,20 +1,24 @@
-import type { QuestionCardProps } from "../../../types";
-import "../styles/Game.css"
+import type { QuestionCardProps } from '../../../types'
+import '../styles/Game.css'
 
-function QuestionCard({ question, selectedOption, onSelect }: QuestionCardProps) {
-
+function QuestionCard({
+  question,
+  selectedOption,
+  onSelect,
+}: QuestionCardProps) {
   const handleClick = (option: string): void => {
     if (!selectedOption) {
-      onSelect(option);
+      onSelect(option)
     }
-  };
+  }
 
   const getOptionClass = (option: string): string => {
-    if (!selectedOption) return "option";
-    if (option === question.answer) return "option correct";
-    if (option === selectedOption && option !== question.answer) return "option wrong";
-    return "option";
-  };
+    if (!selectedOption) return 'option'
+    if (option === question.answer) return 'option correct'
+    if (option === selectedOption && option !== question.answer)
+      return 'option wrong'
+    return 'option'
+  }
 
   return (
     <div className="question-card">
@@ -30,17 +34,13 @@ function QuestionCard({ question, selectedOption, onSelect }: QuestionCardProps)
           </div>
         ))}
       </div>
-      {
-        selectedOption && (
-          <div className="feedback">
-            {
-              selectedOption === question.answer ? "Correct" : "Wrong"
-            }
-          </div>
-        )
-      }
+      {selectedOption && (
+        <div className="feedback">
+          {selectedOption === question.answer ? 'Correct' : 'Wrong'}
+        </div>
+      )}
     </div>
-  );
+  )
 }
 
-export default QuestionCard;
+export default QuestionCard

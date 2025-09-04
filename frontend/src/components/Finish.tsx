@@ -6,14 +6,13 @@ import { getScores } from "../api/api";
 import "../styles/Finish.css";
 
 function Finish({ player, setPlayer }: PlayerProps) {
-
   const [leaderboard, setLeaderboard] = useState<Player[]>([]);
 
   const navigate = useNavigate();
 
   const isCurrentPlayer = (playerItem: Player): boolean => {
     return playerItem.name === player.name && playerItem.score === player.score;
-  }
+  };
 
   useEffect(() => {
     getScores().then(setLeaderboard);
@@ -30,14 +29,15 @@ function Finish({ player, setPlayer }: PlayerProps) {
       <h3>Your score: {player.score}</h3>
       <div className="leaderboard">
         <ol>
-          {
-            leaderboard.map(pItem => (
-              <li key={pItem.name} className={isCurrentPlayer(pItem) ? "current-player" : ""}>
-                <span className="name">{pItem.name}</span>
-                <span className="score">{pItem.score}</span>
-              </li>
-            ))
-          }
+          {leaderboard.map((pItem) => (
+            <li
+              key={pItem.name}
+              className={isCurrentPlayer(pItem) ? "current-player" : ""}
+            >
+              <span className="name">{pItem.name}</span>
+              <span className="score">{pItem.score}</span>
+            </li>
+          ))}
         </ol>
       </div>
       <Button onClick={handleClick}>New Game</Button>
