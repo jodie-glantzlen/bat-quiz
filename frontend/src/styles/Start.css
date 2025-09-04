@@ -49,7 +49,7 @@
   background-color: #556b2f;
 }
 
-/* Optional: adjust colors for dark mode */
+/* Dark/Light mode */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #1e1e1e;

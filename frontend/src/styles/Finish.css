@@ -1,0 +1,80 @@
+/* Title */
+.finish-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 24px;
+}
+
+.finish-container h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+/* Leaderboard container */
+.leaderboard {
+  margin-top: 24px;
+  width: 100%;
+  max-width: 400px;
+  background-color: #f5f5dc;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.leaderboard ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: rank;
+}
+
+.leaderboard li {
+  counter-increment: rank;
+  display: grid;
+  grid-template-columns: 30px 1fr auto;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  font-size: 1.1rem;
+}
+
+.leaderboard li:last-child {
+  border-bottom: none;
+}
+
+.leaderboard li::before {
+  content: counter(rank) ".";
+  font-weight: bold;
+  color: #8b4513;
+}
+
+.leaderboard .name {
+  margin-left: 8px;
+  text-align: left;
+}
+
+.leaderboard .score {
+  font-weight: bold;
+  text-align: right;
+}
+
+/* New Game button */
+.finish-container .MuiButton-root {
+  background-color: #8b4513;
+  color: white;
+  font-weight: bold;
+  margin-top: 24px;
+}
+
+.finish-container .MuiButton-root:hover {
+  background-color: #5a2e0d;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .leaderboard {
+    background-color: #444233;
+    color: #f0f0f0;
+  }
+  .leaderboard li {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+}
