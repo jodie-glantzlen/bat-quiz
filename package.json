@@ -1,13 +1,16 @@
 {
   "name": "bat-quiz",
   "version": "1.0.0",
-  "description": "",
+  "description": "A quiz with cute bats to showcase my mad skills",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"npm run dev --prefix frontend\" \"npm run dev --prefix backend\"",
     "dev:frontend": "npm run dev --prefix frontend",
-    "dev:backend": "npm run dev --prefix backend"
+    "dev:backend": "npm run dev --prefix backend",
+    "start": "concurrently \"npm run dev:frontend\" \"npm run start:backend\"",
+    "start:frontend": "npm run dev --prefix frontend",
+    "start:backend": "npm run start --prefix backend"
   },
   "repository": {
     "type": "git",
